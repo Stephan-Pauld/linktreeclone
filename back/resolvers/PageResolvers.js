@@ -22,9 +22,13 @@ const pageResolvers = {
             return await Page.findByIdAndUpdate(id, updateData, { new: true });
         },
         deletePage: async (_, { id }) => {
-            await Page.findByIdAndRemove(id);
+            const deletedPage = await Page.findByIdAndDelete(id);
+            if (!deletedPage) {
+                throw new Error('Page not found');
+            }
             return "Page deleted successfully";
         }
+
     }
 };
 
