@@ -1,7 +1,7 @@
-const TestResolver = require('./testres');
-// Import other resolvers as needed
+const pageResolvers = require('./PageResolvers');
+// Import other resolvers...
 
 module.exports = {
-    ...TestResolver,
-    // Spread other resolvers here
+    ...pageResolvers
+    // Spread other resolver objects...
 };
